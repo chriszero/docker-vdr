@@ -6,4 +6,4 @@ export LANG="de_DE.UTF-8"
 # We need to preseed the volumes, just copy new files, no overwrite
 cp -a -v --no-clobber /etc/epgd/* /epgd/config
 
-exec /usr/local/bin/epgd -n -t -p /usr/local/lib/epgd/plugins -c /config
+exec /usr/local/bin/epgd -n -t -p /usr/local/lib/epgd/plugins -c /epgd/config

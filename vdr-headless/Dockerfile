@@ -51,7 +51,7 @@ RUN apt-get update -qq && \
 	apt-get autoremove -qy $(apt-cache showsrc vdr-plugin-satip | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g') && \ 
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY vdr-plugin-epg2vdr_0.1.12.amd64.deb /tmp
+COPY vdr-plugin-epg2vdr_0.1.12.amd64.deb /tmp/
 RUN dpkg -i /tmp/vdr-plugin-epg2vdr*
 
 COPY vdr.sh /etc/services.d/vdr/run
