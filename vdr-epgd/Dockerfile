@@ -26,8 +26,9 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    git clone -b http git://projects.vdr-developer.org/vdr-epg-daemon.git && \
-    cd vdr-epg-daemon && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.3.2.tar.gz && \
+    tar xzf vdr-epg-daemon-0.3.2.tar.gz && \
+    cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
     make all install &&\
      \
@@ -50,7 +51,7 @@ RUN apt-get update -qq && \
       libpython-dev python-dev &&\
     apt-get autoremove -qy && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD configs/* /config/
+ADD configs/* /epgd/config 
 
 # install runit scripts
 ADD epgd.sh /etc/services.d/epgd/run
