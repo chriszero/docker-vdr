@@ -1,0 +1,18 @@
+epgd:
+  build: .
+  ports:
+    - 9999:9999
+  links:
+    - database
+  restart: always
+  volumes:
+    - /config
+    - /var/epgd
+
+database:
+  image: chriszero/mariadb-epglv
+  ports:
+    - 3306:3306
+  restart: always
+  environment:
+    - MYSQL_ROOT_PASSWORD=my-secret-pw

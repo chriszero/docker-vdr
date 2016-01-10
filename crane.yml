@@ -1,0 +1,56 @@
+containers:
+  vdr.data:
+    build:
+      context: vdr-data/.
+    image: chriszero/vdr.config
+    run:
+      # Map the volumes to your local filesystem to be able to edit
+      volume: ["volumes/vdrconf:/vdr/config", "volumes/etcvdr:/etc/vdr", "volumes/epgdconf:/epgd/config"]
+      
+  vdr:
+    build: 
+      context: vdr-headless/.
+    image: chriszero/vdr-headless
+    run:
+      volume: ["volumes/rec:/recordings"]
+      volumes-from: ["vdr.data"]
+      link: ["database"]
+      publish: ["2004:2004", "3000:3000", "4010-4020:4010-4020/udp", "6419:6419", "8002:8002", "8008:8008"]
+      detach: true
+      restart: always
+
+  epgd:
+    build:
+      context: vdr-epgd/.
+    image: chriszero/vdr-epgd 
+    run:
+      volumes-from: ["vdr.data"]
+      publish: ["9999:9999"]
+      link: ["database","vdr"]
+      detach: true
+      restart: always
+
+  database:
+    image: chriszero/mariadb-epglv
+    run:
+      volumes-from: ["vdr.data"]
+      publish: ["3306:3306"]
+      restart: always
+      detach: true
+      env:
+        - MYSQL_ROOT_PASSWORD=my-secret-pw
+
+# Instructions for 'crane' tool (https://github.com/michaelsauter/crane)
+
+# Build / Download
+# $ crane provision -v vdr.config vdr epgd database
+
+# Create instances
+# $ crane create -v vdr.config vdr epgd database
+
+# Start vdr
+# $ docker start vdr
+
+# Stop vdr
+# $ docker stop vdr
+
