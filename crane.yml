@@ -31,6 +31,8 @@ containers:
       restart: always
 
   database:
+    build:
+      context: mariadb-epglv/.
     image: chriszero/mariadb-epglv
     run:
       volumes-from: ["vdr.data"]
