@@ -10,7 +10,6 @@ VOLUME /vdr/cache
 
 #EPGD
 VOLUME /epgd/config
-VOLUME /var/epgd
 
 # MariaDB / MySQL
 VOLUME /var/lib/mysql

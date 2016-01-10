@@ -26,8 +26,8 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.3.2.tar.gz && \
-    tar xzf vdr-epg-daemon-0.3.2.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.4.2.tar.gz && \
+    tar xzf vdr-epg-daemon-0.4.2.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
     make all install &&\
@@ -51,13 +51,13 @@ RUN apt-get update -qq && \
       libpython-dev python-dev &&\
     apt-get autoremove -qy && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD configs/* /epgd/config 
+COPY configs/* /epgd/config/ 
 
 # install runit scripts
-ADD epgd.sh /etc/services.d/epgd/run
-ADD epghttpd.sh /etc/services.d/epghttpd/run
+COPY epgd.sh /etc/services.d/epgd/run
+COPY epghttpd.sh /etc/services.d/epghttpd/run
 
 EXPOSE 8888 9999
 
-VOLUME /epgd/config /var/epgd
+VOLUME /epgd/config
 
