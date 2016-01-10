@@ -12,6 +12,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 272A2CE181
 
 RUN apt-get update -qq && \
 	apt-get install -qy \
+	wget \
 	vdr \
 	rsyslog \
 	vdr-plugin-epgsearch \
@@ -29,8 +30,6 @@ RUN apt-get update -qq && \
 	nano && \
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD https://github.com/chriszero/vdr-plugin-satip/archive/vdr-2.2.x.tar.gz .
-#COPY vdr-satip-2.2.3.tgz .
 RUN echo deb-src http://ppa.launchpad.net/yavdr/main/ubuntu trusty main >> /etc/apt/sources.list.d/yavdr.list \
  && echo deb-src http://ppa.launchpad.net/yavdr/stable-vdr/ubuntu trusty main >> /etc/apt/sources.list.d/yavdr.list
 
@@ -38,6 +37,7 @@ RUN apt-get update -qq && \
 	apt-get install -qy build-essential && \
 	apt-get build-dep -qy \
 	vdr-plugin-satip && \
+	wget https://github.com/rofafor/vdr-plugin-satip/archive/vdr-2.2.x.tar.gz &&\
 	tar xzf vdr-2.2.x.tar.gz && \
 	cd vdr-plugin-satip* && \
 	make && make install && \
@@ -51,12 +51,12 @@ RUN apt-get update -qq && \
 	apt-get autoremove -qy $(apt-cache showsrc vdr-plugin-satip | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g') && \ 
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD vdr-plugin-epg2vdr_0.1.12.git20151112.0816-0yavdr2~trustyubuntu1_amd64.deb .
-RUN dpkg -i vdr-plugin-epg2vdr*
+COPY vdr-plugin-epg2vdr_0.1.12.git20151112.0816-0yavdr2~trustyubuntu1_amd64.deb /tmp
+RUN dpkg -i /tmp/vdr-plugin-epg2vdr*
 
-ADD vdr.sh /etc/services.d/vdr/run
-ADD vdr-finish.sh /etc/services.d/vdr/finish
-ADD rsyslog.sh /etc/services.d/rsyslog/run
+COPY vdr.sh /etc/services.d/vdr/run
+COPY vdr-finish.sh /etc/services.d/vdr/finish
+COPY rsyslog.sh /etc/services.d/rsyslog/run
 
 # Configure the vdr user account and it's folders
 RUN groupmod -o -g 666 vdr \
@@ -64,10 +64,10 @@ RUN groupmod -o -g 666 vdr \
  && install -o vdr -g vdr -d /recordings /vdr/config /vdr/cache
  
 # add configs
-ADD var/lib/vdr/* /var/lib/vdr/
-ADD var/lib/vdr/plugins/streamdev-server/* /var/lib/vdr/plugins/streamdev-server/
-ADD etc/vdr/conf.d/* /etc/vdr/conf.d/
-ADD etc/rsyslog.conf /etc/
+COPY var/lib/vdr/* /var/lib/vdr/
+COPY var/lib/vdr/plugins/streamdev-server/* /var/lib/vdr/plugins/streamdev-server/
+COPY etc/vdr/conf.d/* /etc/vdr/conf.d/
+COPY etc/rsyslog.conf /etc/
 
 EXPOSE 2004 3000 6419 8002 8008 4010-4020/udp 34890
 VOLUME /recordings  /etc/vdr /vdr/config /vdr/cache
