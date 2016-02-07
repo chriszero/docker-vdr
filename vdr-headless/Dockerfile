@@ -41,7 +41,7 @@ RUN apt-get update -qq && \
 	tar xzf vdr-2.2.x.tar.gz && \
 	cd vdr-plugin-satip* && \
 	make && make install && \
-	cd .. && wget https://projects.vdr-developer.org/git/vdr-plugin-epg2vdr.git/snapshot/vdr-plugin-epg2vdr-http.tar.gz && \
+	cd .. && wget https://projects.vdr-developer.org/git/vdr-plugin-epg2vdr.git/snapshot/vdr-plugin-epg2vdr-0.3.8.tar.gz && \
 	tar xzf vdr-plugin-epg2vdr-* && \
 	cd vdr-plugin-epg2vdr* && \
 	make && make install && \
