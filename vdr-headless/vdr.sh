@@ -15,6 +15,7 @@ export LANG="de_DE.UTF-8"
 
 # We need to preseed the volumes, just copy new files, no overwrite
 cp -a -v --no-clobber /var/lib/vdr/* /vdr/config
+cp -a /var/lib/vdr/plugins/epg2vdr/epg.dat /vdr/config/plugins/epg2vdr
 
 # Run vdr
 exec s6-setuidgid vdr vdr
