@@ -35,14 +35,14 @@ RUN echo deb-src http://ppa.launchpad.net/yavdr/main/ubuntu trusty main >> /etc/
  && echo deb-src http://ppa.launchpad.net/yavdr/stable-vdr/ubuntu trusty main >> /etc/apt/sources.list.d/yavdr.list
 
 RUN apt-get update -qq && \
-	apt-get install -qy build-essential libmariadbclient-dev uuid-dev libjansson4 libjansson-dev python libpython2.7 libpython-dev python-dev && \
+	apt-get install -qy build-essential libmariadbclient-dev uuid-dev libjansson4 libjansson-dev python libpython2.7 libpython-dev python-dev libarchive13 libarchive-dev && \
 	apt-get build-dep -qy \
 	vdr-plugin-satip && \
 	wget https://github.com/rofafor/vdr-plugin-satip/archive/vdr-2.2.x.tar.gz &&\
 	tar xzf vdr-2.2.x.tar.gz && \
 	cd vdr-plugin-satip* && \
 	make && make install && \
-	cd .. && wget https://projects.vdr-developer.org/git/vdr-plugin-epg2vdr.git/snapshot/vdr-plugin-epg2vdr-0.3.30.tar.gz && \
+	cd .. && wget https://projects.vdr-developer.org/git/vdr-plugin-epg2vdr.git/snapshot/vdr-plugin-epg2vdr-0.3.31.tar.gz && \
 	tar xzf vdr-plugin-epg2vdr-* && \
 	cd vdr-plugin-epg2vdr* && \
 	make && make install && \
@@ -52,7 +52,7 @@ RUN apt-get update -qq && \
 			  libcloog-isl4 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-4.8-dev \
 			  libgmp10 libisl10 libitm1 libmpc3 libmpfr4 libquadmath0 libstdc++-4.8-dev \
 			  libtimedate-perl libtsan0 linux-libc-dev make manpages manpages-dev patch \
- 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev && \
+ 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev  libarchive-dev && \
 	apt-get autoremove -qy $(apt-cache showsrc vdr-plugin-satip | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g') && \ 
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

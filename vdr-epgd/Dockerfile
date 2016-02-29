@@ -26,8 +26,8 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.6.29.tar.gz && \
-    tar xzf vdr-epg-daemon-0.6.29.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.6.31.tar.gz && \
+    tar xzf vdr-epg-daemon-0.6.31.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
     make all install &&\
