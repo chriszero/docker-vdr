@@ -23,7 +23,7 @@ $ crane provision -v vdr epdg database
 Create the containers and start them
 
 ```sh
-$ crane create -v vdr.config
+$ crane create -v vdr.data
 $ crane create -v vdr epgd database
 $ crane start
 ```
