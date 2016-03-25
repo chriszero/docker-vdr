@@ -26,11 +26,17 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.6.54.tar.gz && \
-    tar xzf vdr-epg-daemon-0.6.54.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-0.7.9.tar.gz && \
+    tar xzf vdr-epg-daemon-0.7.9.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
     make all install &&\
+     \
+     cd /tmp && \
+     wget https://github.com/FrodoVDR/channellogos/archive/master.tar.gz && \
+     tar xzf master.tar.gz && \
+     mkdir -p /var/epgd/www/channellogos && \
+     cp -r channellogos-master/logos-orig/* /var/epgd/www/channellogos/ && \
      \
     apt-get remove -qy \
       build-essential \
@@ -49,7 +55,7 @@ RUN apt-get update -qq && \
       libjansson-dev \
       libmicrohttpd-dev \
       libpython-dev python-dev &&\
-    apt-get autoremove -qy && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get autoremove -qy && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 COPY configs/* /epgd/config/ 
 
