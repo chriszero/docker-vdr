@@ -18,12 +18,12 @@ Make sure you have a vdr user and a vdr group, both with id '666' (same as in ya
 
 ```sh
 $ crane provision -v vdr.data
-$ crane provision -v vdr epdg database
+$ crane provision -v vdr epgd database
 ```
 Create the containers and start them
 
 ```sh
-$ crane create -v vdr.config
+$ crane create -v vdr.data
 $ crane create -v vdr epgd database
 $ crane start
 ```
