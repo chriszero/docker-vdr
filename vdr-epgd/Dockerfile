@@ -31,7 +31,7 @@ RUN apt-get update -qq && \
     tar xzf vdr-epg-daemon-1.0.79.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
-    tar xzf ../master.tar.gz ./PLUGINS && \
+    tar xzf ../master.tar.gz -C ./PLUGINS && \
     make all install &&\
      \
      cd /tmp && \
