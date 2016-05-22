@@ -26,14 +26,16 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.0.63.tar.gz && \
-    tar xzf vdr-epg-daemon-1.0.63.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.0.79.tar.gz && \
+    wget https://github.com/chriszero/epgd-plugin-tvsp/archive/master.tar.gz && \
+    tar xzf vdr-epg-daemon-1.0.79.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
-    patch -p1 < ../patch0.patch && \
+    tar xzf ../master.tar.gz ./PLUGINS && \
     make all install &&\
      \
      cd /tmp && \
+     rm master.tar.gz && \
      wget https://github.com/FrodoVDR/channellogos/archive/master.tar.gz && \
      tar xzf master.tar.gz && \
      mkdir -p /var/epgd/www/channellogos && \
