@@ -1,7 +1,7 @@
 diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/Makefile vdr-epg-daemon/PLUGINS/tvm/Makefile
 --- vdr-epg-daemon.orig/PLUGINS/tvm/Makefile	1970-01-01 01:00:00.000000000 +0100
-+++ vdr-epg-daemon/PLUGINS/tvm/Makefile	2014-04-03 11:22:25.000000000 +0200
-@@ -0,0 +1,62 @@
++++ vdr-epg-daemon/PLUGINS/tvm/Makefile	2015-10-01 12:20:34.000000000 +0200
+@@ -0,0 +1,65 @@
 +#
 +# Makefile
 +#
@@ -27,11 +27,14 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/Makefile vdr-epg-daemon/PLUGI
 +$(SOFILE): $(OBJS)
 +	$(CC) $(CFLAGS) -shared $(OBJS) $(LIBS) -o $@
 +
++extst: xmltest.c
++	g++ -ggdb -I$(EPGD_SRC) $(EPGD_SRC)/lib/common.c $(EPGD_SRC)/lib/config.c -lpthread xmltest.c -o extst
++
 +install:  $(SOFILE) install-config
 +	install -D $(SOFILE) $(PLGDEST)/
 +
 +clean:
-+	@-rm -f $(OBJS) core* *~ *.so
++	@-rm -f $(OBJS) core* *~ *.so extst *.xml
 +	rm -f ./configs/*~
 +	rm -f tvm-*.tgz
 +
@@ -858,8 +861,8 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie-utf-8.xsl vdr
 +</xsl:stylesheet>
 diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie.xsl vdr-epg-daemon/PLUGINS/tvm/configs/tvmovie.xsl
 --- vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie.xsl	1970-01-01 01:00:00.000000000 +0100
-+++ vdr-epg-daemon/PLUGINS/tvm/configs/tvmovie.xsl	2014-10-13 12:13:34.000000000 +0200
-@@ -0,0 +1,351 @@
++++ vdr-epg-daemon/PLUGINS/tvm/configs/tvmovie.xsl	2016-05-20 14:55:21.000000000 +0200
+@@ -0,0 +1,372 @@
 +<xsl:stylesheet version="1.0"
 +                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 +                xmlns="http://www.w3.org/TR/xhtml1/strict"
@@ -905,14 +908,36 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie.xsl vdr-epg-d
 +
 +
 +        <xsl:choose>
++            <xsl:when test="Bewertung = 5">
++                <tipp>GoldTipp</tipp>
++            </xsl:when>
 +            <xsl:when test="Bewertung = 4">
-+                <tipp>[TagesTipp]</tipp>
++                <tipp>TagesTipp</tipp>
 +            </xsl:when>
 +            <xsl:when test="Bewertung = 3">
-+                <tipp>[TopTipp]</tipp>
++                <tipp>TopTipp</tipp>
++            </xsl:when>
++        </xsl:choose>
++
++
++	<xsl:if test="string-length(Bewertung) and Bewertung &gt; 0 and Bewertung &lt; 6"><numrating><xsl:value-of select="Bewertung"/></numrating></xsl:if>
++
++
++        <xsl:choose>
++            <xsl:when test="Bewertung = 5">
++                <txtrating>Einer der besten Filme aller Zeiten</txtrating>
++            </xsl:when>
++            <xsl:when test="Bewertung = 4">
++                <txtrating>Sehr empfehlenswert</txtrating>
++            </xsl:when>
++            <xsl:when test="Bewertung = 3">
++                <txtrating>Empfehlenswert</txtrating>
 +            </xsl:when>
 +            <xsl:when test="Bewertung = 2">
-+                <tipp>[Tipp]</tipp>
++                <txtrating>Eher durchschnittlich</txtrating>
++            </xsl:when>
++            <xsl:when test="Bewertung = 1">
++                <txtrating>Eher uninteressant</txtrating>
 +            </xsl:when>
 +        </xsl:choose>
 +
@@ -1052,14 +1077,13 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie.xsl vdr-epg-d
 +
 +
 +	<xsl:if test="string-length(FSK)"><parentalrating><xsl:value-of select="FSK"/></parentalrating></xsl:if>
-+	<xsl:if test="string-length(Bewertung) and Bewertung &gt; 0"><numrating><xsl:value-of select="Bewertung"/></numrating></xsl:if>
 +
 +        <xsl:if test="string-length(Darsteller)">
 +            <xsl:call-template name="group2tag">
 +                <xsl:with-param name="str">
 +                    <xsl:call-template name="grouping">
 +                        <xsl:with-param name="str" select="concat(Darsteller,';')"/>
-+                        <xsl:with-param name="values" select="'[Moderator][Moderation]:moderator;[Regie]:director;[Gast][Gaststar]:guest;[Drehbuch]:screenplay;[Musik]:music;[Produzent]:producer;[Kamera]:camera;[Schnitt])[Szenen-/Bühnenbild])[Produktionsfirma])[Autor])[Kostüm])[Buch])[Ausstattung])[Spezialeffekte])[Filmverleih])[Ton])[Casting])[Regie-Assistenz])[Spezialpersonen])[Stunts])[Verantwortlich])[Choreograph])[Komponist])[Redner])[Cameoauftritt]):other;:actor'"/>
++                        <xsl:with-param name="values" select="'[Moderator][Moderation]:moderator;[Regie]:director;[Gast][Gaststar]:guest;[Drehbuch]:screenplay;[Musik]:music;[Produzent]:producer;[Kommentar]:commentator;[Kamera]:camera;[Schnitt])[Szenen-/Bühnenbild])[Produktionsfirma])[Autor])[Kostüm])[Buch])[Ausstattung])[Spezialeffekte])[Filmverleih])[Ton])[Casting])[Regie-Assistenz])[Spezialpersonen])[Stunts])[Verantwortlich])[Choreograph])[Komponist])[Redner])[Cameoauftritt]):other;:actor'"/>
 +                    </xsl:call-template>
 +                    <xsl:text>;</xsl:text>
 +                </xsl:with-param>
@@ -1211,10 +1235,34 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/configs/tvmovie.xsl vdr-epg-d
 +</xsl:template>
 +
 +</xsl:stylesheet>
+diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/scripts/gettvmids.sh vdr-epg-daemon/PLUGINS/tvm/scripts/gettvmids.sh
+--- vdr-epg-daemon.orig/PLUGINS/tvm/scripts/gettvmids.sh	1970-01-01 01:00:00.000000000 +0100
++++ vdr-epg-daemon/PLUGINS/tvm/scripts/gettvmids.sh	2015-09-30 13:36:09.000000000 +0200
+@@ -0,0 +1,20 @@
++
++file="/tmp/datainfo.txt"
++
++wget http://wwwa.tvmovie.de/static/tvghost/html/onlinedata/cftv520/datainfo.txt -q -O $file
++
++cat $file | dos2unix -l | dos2unix | while read line; do 
++
++   i=$[ $i + 1 ]
++
++   if [ $i -gt 3 ]; then 
++
++     if [ $[ $i % 2 ] == 0 ]; then 
++        chan=$line 
++     else 
++        echo "tvm:$line    // $chan"
++     fi  
++
++   fi;
++
++done | sort
 diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c vdr-epg-daemon/PLUGINS/tvm/tvm.c
 --- vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c	1970-01-01 01:00:00.000000000 +0100
-+++ vdr-epg-daemon/PLUGINS/tvm/tvm.c	2015-09-23 15:23:20.000000000 +0200
-@@ -0,0 +1,757 @@
++++ vdr-epg-daemon/PLUGINS/tvm/tvm.c	2016-05-11 10:32:30.000000000 +0200
+@@ -0,0 +1,762 @@
 +/*
 + * tvm.c
 + *
@@ -1317,7 +1365,7 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c vdr-epg-daemon/PLUGINS/
 +   stmtMarkOldEvents = new cDbStatement(obj->eventsDb);
 +
 +   stmtMarkOldEvents->build("update %s set ", obj->eventsDb->TableName());
-+   stmtMarkOldEvents->build("updflg = case when updflg in (%s) then 'D' else updflg end, ", Us::getDeletable());
++   stmtMarkOldEvents->build("updflg = case when updflg in (%s) then 'D' else updflg end, ", cEventState::getDeletable());
 +   stmtMarkOldEvents->build("delflg = 'Y', updsp = unix_timestamp()");
 +   stmtMarkOldEvents->build(" where source = '%s'", getSource());
 +   stmtMarkOldEvents->build(" and  (source, fileref) not in (select source,fileref from fileref)");
@@ -1732,39 +1780,39 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c vdr-epg-daemon/PLUGINS/
 +         obj->parseEvent(obj->eventsDb->getRow(), node);
 +
 +         // ...
-+
-+         time_t mergesp = obj->mapDb->getIntValue("MergeSp");
-+         long starttime = obj->eventsDb->getIntValue("StartTime");
-+         int merge = obj->mapDb->getIntValue("Merge");
 +         
-+         // store ..
++         time_t mergesp = obj->mapDb->getIntValue("MERGESP");
++         long starttime = obj->eventsDb->getIntValue("STARTTIME");
++         int merge = obj->mapDb->getIntValue("MERGE");
 +
++         // store ..
++         
 +         if (insert)
 +         {
 +            // handle insert
 +
-+            obj->eventsDb->setValue("Version", 0xFF);
-+            obj->eventsDb->setValue("TableId", 0L);
-+            obj->eventsDb->setValue("UseId", 0L);
++            obj->eventsDb->setValue("VERSION", 0xFF);
++            obj->eventsDb->setValue("TABLEID", 0L);
++            obj->eventsDb->setValue("USEID", 0L);
 +
 +            if (starttime <= mergesp)
-+               obj->eventsDb->setValue("UpdFlg", "I");
++               obj->eventsDb->setCharValue("UPDFLG", cEventState::usInactive);
 +            else
-+               obj->eventsDb->setValue("UpdFlg", merge > 1 ? "S" : "A");
++               obj->eventsDb->setCharValue("UPDFLG", merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
 +
 +            obj->eventsDb->insert();
 +         }
 +         else
 +         {
-+            if (obj->eventsDb->hasValue("DelFlg", "Y"))
-+               obj->eventsDb->setValue("DelFlg", "N");
++            if (obj->eventsDb->hasValue("DELFLG", "Y"))
++               obj->eventsDb->setValue("DELFLG", "N");
 +
-+            if (obj->eventsDb->hasValue("UpdFlg", "D"))
++            if (obj->eventsDb->hasValue("UPDFLG", "D"))
 +            {
 +               if (starttime <= mergesp)
-+                  obj->eventsDb->setValue("UpdFlg", "I");
++                  obj->eventsDb->setCharValue("UPDFLG", cEventState::usInactive);
 +               else
-+                  obj->eventsDb->setValue("UpdFlg", merge > 1 ? "S" : "A");
++                  obj->eventsDb->setCharValue("UPDFLG", merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
 +            }
 +
 +            obj->eventsDb->update();
@@ -1836,8 +1884,11 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c vdr-epg-daemon/PLUGINS/
 +   {
 +      tell(0, "Extracting of '%s' failed", filename);
 +      free(command);
++      free(filename);
 +      return fail;
 +   }
++
++   // remove zipped file
 +
 +   char* tmp = 0;
 +   asprintf(&tmp, "%s/%s/%s", EpgdConfig.cachePath, getSource(), filename);
@@ -1858,6 +1909,8 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.c vdr-epg-daemon/PLUGINS/
 +{
 +   data->clear();
 +   obj->loadFromFs(data, imagename, getSource());
++
++   // remove image after epgd has requested it (stored in table)
 +
 +   char* tmp = 0;
 +   asprintf(&tmp, "%s/%s/%s", EpgdConfig.cachePath, getSource(), imagename);
@@ -2164,3 +2217,292 @@ diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/tvm.h vdr-epg-daemon/PLUGINS/
 +      uint64_t numeric;
 +      time_t unixTime;
 +};
+diff -Naur -x .git vdr-epg-daemon.orig/PLUGINS/tvm/xmltest.c vdr-epg-daemon/PLUGINS/tvm/xmltest.c
+--- vdr-epg-daemon.orig/PLUGINS/tvm/xmltest.c	1970-01-01 01:00:00.000000000 +0100
++++ vdr-epg-daemon/PLUGINS/tvm/xmltest.c	2015-10-01 12:28:07.000000000 +0200
+@@ -0,0 +1,285 @@
++
++#include <map>
++#include <string>
++
++#include <math.h>
++#include <stdint.h>
++#include <lib/config.h>
++#include <lib/common.h>
++
++const char* logPrefix = "";
++int createXml(const char* extid, MemoryStruct* xmlData);
++
++//***************************************************************************
++// Field
++//***************************************************************************
++
++const uint64_t epoch = 4675708794760826425LL;
++const double factor = 95443717 / 60.0;            // Number of TVM-ticks in per second. 
++const unsigned int unixTimeEpoch = 1233270600;
++
++class Field 
++{
++   public:
++
++      enum ContentType 
++      { 
++         ctInt      = 3, 
++         ctDateTime = 7, 
++         ctString   = 8,
++         ctTwoByte  = 11 
++      };
++
++      Field(FILE* file)        { read(file); }
++
++      const std::string& getString() const  { return stringContent; }
++      uint64_t getNumeric()     const  { return numeric; }
++      bool isNumeric()          const  { return type == ctInt || type == ctTwoByte; }
++      bool isString()           const  { return type == ctString || type == ctDateTime; }
++
++      std::string getXmlString()
++      {
++         std::string xml = "";
++         
++         for (unsigned int i = 0; i < stringContent.size(); i++) 
++         {
++            char c = stringContent[i];
++
++            if (c == '<') 
++            {
++               if (stringContent.substr(i, 4) == "<br>") 
++               {
++                  xml += "\n\n";
++                  i += 3;
++               } 
++               else 
++                  xml += "&lt;";
++            } 
++
++            else if (c == '>')
++               xml += "&gt;";
++            else if (c == '&')
++               xml += "&amp;";
++            else if (c == '"')
++               xml += "&quot;";
++            else
++               xml += c;
++         }
++
++         return xml;
++      }
++
++   private:
++
++      void read(FILE* file) 
++      {
++         type = (ContentType)readInt(file, 2);
++
++         switch (type) 
++         {
++            case ctString:  readString(file);            break;
++            case ctInt:     numeric = readInt(file, 4);  break;
++
++            case ctDateTime: 
++            {
++               char buffer[30];
++
++               numeric = readInt(file, 8);
++               unixTime = unixTimeEpoch + (int)round((numeric-epoch)/factor) - 1;
++               
++               //strftime(buffer, 30, "%Y-%m-%d %k:%M:%S (%Z)", gmtime(&unixTime));
++               unixTime += tmeSecondsPerHour;               
++               strftime(buffer, 30, "%Y-%m-%d %H:%M:%S", gmtime(&unixTime));
++
++               stringContent = buffer;
++
++               break;
++            }
++
++            case ctTwoByte:
++            {
++               numeric = readInt(file, 2);
++
++               if (numeric == 0xFFFF)
++                  numeric = 1;
++
++               break;
++            }
++         }
++      }
++
++      void readString(FILE* file)
++      {
++         int length = readInt(file, 2);
++         
++         for (int i = 0; i < length; i++) 
++         {
++            int ch = fgetc(file);
++            stringContent.push_back(ch);
++         }
++      }
++      
++      static uint64_t readInt(FILE* file, int bytes) 
++      {
++         uint64_t numeric = 0;
++
++         for (int i = 0; i < bytes; i++) 
++         {
++            int byte = fgetc(file);
++            numeric += (uint64_t)byte << (8*i);
++         }
++
++         return numeric;
++      }
++      
++      ContentType type;
++      std::string stringContent;
++      uint64_t numeric;
++      time_t unixTime;
++};
++
++//***************************************************************************
++// Main
++//***************************************************************************
++
++int main(int argc, char** argv)
++{
++   MemoryStruct xmlData;
++   char* command;
++   char password[7+TB];
++   char* lang;
++   char* filename = 0;
++   cEpgConfig::logstdout = yes;
++   cEpgConfig::loglevel = 0;
++   const char* extid;
++
++   setlocale(LC_CTYPE, "");
++   setlocale(LC_TIME, "");
++
++   if (argc < 3)
++   {
++      tell(0, "Usage: extst <path> <tvmid>");
++      return 1;
++   }
++
++   extid = argv[2];
++   asprintf(&filename, "%s/tvdaten-premium-%s.cftv.zip", argv[1], extid);
++   memset(password, 0xb7, 7);
++   password[7] = 0;
++
++   asprintf(&command, "unzip -o -P %s %s", password, filename);
++
++   if (system(command) < 0 || !fileExists(filename))
++   {
++      printf("Extracting of '%s' failed\n", filename);
++      free(command);
++      return 1;
++   }
++
++   printf("Extracting of '%s' done\n", filename);
++   free(command);
++   free(filename);
++
++   createXml(extid, &xmlData);
++
++   return 0;
++}
++
++//***************************************************************************
++// Create Xml
++//***************************************************************************
++
++int createXml(const char* extid, MemoryStruct* xmlData)
++{
++   char* filename;
++   std::map<int, std::map<std::string, std::string> > table;
++   std::map<int, std::map<std::string, std::string> >::iterator iter;
++   
++   printf("Creating xml of %s\n", extid);  
++
++   // -----------------------------------------------
++   // read data into memory table
++   
++   for (int num = 0; num < 2; num++)
++   {
++      FILE* file;
++      int ch;
++      int row = 0, col = 0;
++      
++      asprintf(&filename, "%s.tv%d", extid, num+1);
++      
++      if (!(file = fopen(filename, "r")))
++      {
++         tell(0, "Error: Opening '%s' failed, status was '%s'", filename, strerror(errno));
++         free(filename);
++         return fail;
++      }
++      
++      fseek(file, 0, SEEK_SET);
++      
++      for (int i = 0; i < 10; i++) 
++      {
++         row *= 10;
++         row += fgetc(file) - '0';
++      }
++      
++      while ((ch = fgetc(file)) != '\f')
++      {
++         col *= 10;
++         col += ch - '0';
++      }
++      
++      fseek(file, 40, SEEK_SET);                    // seek to data section
++      
++      for (int c = 0; c < col; c++)
++      {
++         Field header(file);
++         const char* name = header.getString().c_str();
++         
++         for (int r = 0; r < row; r++)
++         {
++            Field field(file);
++            
++            if (field.isNumeric())
++               table[r][name] = num2Str(field.getNumeric());
++            else if (field.isString())
++               table[r][name] = field.getXmlString();
++         }
++      }
++      
++      fclose(file);
++      removeFile(filename);
++      free(filename);
++   }
++
++   // -----------------------------------------------   
++   // flush data to xml file
++
++   std::string xmlBuf;
++   
++   xmlBuf += "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
++   xmlBuf += "<!DOCTYPE Export>\n";
++   xmlBuf += "<Export>\n";
++
++   for (iter = table.begin(); iter != table.end(); iter++) 
++   {
++      xmlBuf += "  <Sendung>\n";
++
++      for (std::map<std::string, std::string>::iterator i = iter->second.begin(); i != iter->second.end(); i++)
++         xmlBuf += "    <" + i->first + ">" + i->second + "</" + i->first + ">\n";
++
++      xmlBuf += "  </Sendung>\n";
++   }
++   
++   xmlBuf += "</Export>\n";
++
++   xmlData->size = xmlBuf.length()+TB;
++   xmlData->memory = (char*)malloc(xmlData->size);
++   strcpy(xmlData->memory, xmlBuf.c_str());
++
++   asprintf(&filename, "%s.xml", extid);
++   storeToFile(filename, xmlData->memory, xmlData->size);
++   free(filename);
++
++   return success;
++}

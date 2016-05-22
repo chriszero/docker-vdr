@@ -64,6 +64,149 @@ index 0000000..cd43c54
 +#***************************************************************************
 +
 +tvsp.o : tvsp.c  tvsp.h
+diff --git a/PLUGINS/tvsp/configs/channelmap.conf-tvsp-astra b/PLUGINS/tvsp/configs/channelmap.conf-tvsp-astra
+new file mode 100644
+index 0000000..4c978aa
+--- /dev/null
++++ b/PLUGINS/tvsp/configs/channelmap.conf-tvsp-astra
+@@ -0,0 +1,137 @@
++//
++// TV-Spielfilm
++//
++tvsp:ARD = S19.2E-1-1019-10301 // Das Erste HD;ARD
++tvsp:ZDF = S19.2E-1-1011-11110 // ZDF HD;ZDFvision
++tvsp:WDR = S19.2E-1-1201-28327 // WDR HD Dortmund;ARD
++tvsp:RTL = S19.2E-1-1057-61200 // RTL HD;CBC
++tvsp:SAT1 = S19.2E-1-1017-61300 // SAT.1 HD;ProSiebenSat.1
++tvsp:RTL2 = S19.2E-1-1057-61205 // RTLII HD;CBC
++tvsp:PRO7 = S19.2E-1-1017-61301 // ProSieben HD;ProSiebenSat.1
++tvsp:SUPER = S19.2E-1-1041-11931 // SUPER RTL HD;CBC
++tvsp:K1 = S19.2E-1-1017-61302 // kabel eins HD;ProSiebenSat.1
++tvsp:VOX = S19.2E-1-1057-61201 // VOX HD;CBC
++tvsp:TELE5 = S19.2E-1-1109-5401 // TELE 5 HD;BetaDigital
++tvsp:SIXX = S19.2E-1-1017-61303 // SIXX HD;ProSiebenSat.1
++tvsp:RTL-N = S19.2E-1-1041-11951 // RTLNITRO HD;CBC
++tvsp:SAT1G = S19.2E-1-1043-12500 // SAT.1 Gold HD;ProSiebenSat.1
++tvsp:PRO7M = S19.2E-1-1017-61304 // Pro7 MAXX HD;ProSiebenSat.1
++tvsp:DMAX = S19.2E-1-1109-5402 // DMAX HD;BetaDigital
++tvsp:TLC = S19.2E-1-1033-10100 // TLC HD;BetaDigital
++tvsp:ARTE = S19.2E-1-1019-10302 // arte HD;ARD
++tvsp:3SAT = S19.2E-1-1010-11150 // 3sat HD;ZDFvision
++tvsp:PHOEN = S19.2E-1-1025-10331 // PHOENIX HD;ARD
++tvsp:NDR = S19.2E-1-1025-10329 // NDR FS HH HD;ARD
++tvsp:SWRBW = S19.2E-1-1019-10303 // SWR BW HD;ARD
++tvsp:BR = S19.2E-1-1025-10325 // BR Fernsehen Süd HD;ARD
++tvsp:HR = S19.2E-1-1061-10355 // hr-fernsehen HD;ARD
++tvsp:RBB = S19.2E-1-1061-10351 // rbb Berlin HD;ARD
++tvsp:MDR = S19.2E-1-1061-10354 // MDR Thüringen HD;ARD
++tvsp:ALPHA = S19.2E-1-1093-28487 // ARD-alpha;ARD
++tvsp:TAG24 = S19.2E-1-1039-10375 // tagesschau24 HD;ARD
++tvsp:NTV = S19.2E-1-1057-61204 // n-tv HD;CBC
++tvsp:EURON = S19.2E-1-1091-31220 // EuroNews;Globecast
++tvsp:N24 = S19.2E-1-1053-21108 // N24 HD;BetaDigital
++tvsp:CNN:0 = S19.2E-1-1028-4422 // CNN Int.;SES
++tvsp:BLM = S19.2E-1-1026-10067 // Bloomberg Europe TV;Bloomberg TV
++tvsp:FES = S19.2E-1-1039-10376 // Einsfestival HD;ARD
++tvsp:MUX = S19.2E-1-1039-10377 // EinsPlus HD;ARD
++tvsp:2NEO = S19.2E-1-1011-11130 // zdf_neo HD;ZDFvision
++tvsp:ZINFO = S19.2E-1-1010-11170 // ZDFinfo HD;ZDFvision
++tvsp:2KULT = S19.2E-1-1011-11140 // zdf.kultur HD;ZDFvision
++tvsp:MTV = S19.2E-1-1033-10103 // MTV HD;BetaDigital
++tvsp:DELUXE = S19.2E-1-1055-5503 // Deluxe Music HD;BetaDigital
++tvsp:VIVA = S19.2E-1-1078-28676 // Comedy Central/VIVA;MTV Networks Europe
++tvsp:KIKA = S19.2E-1-1010-11160 // KiKA HD;ZDFvision
++tvsp:NICK:0 = S19.2E-1-1053-21107 // NICKELODEON HD;MTV Networks
++tvsp:DISNE = S19.2E-1-1055-5500 // Disney Channel HD;BetaDigital
++tvsp:SERVU = S19.2E-1-1007-4914 // ServusTV HD Deutschland;ServusTV
++tvsp:ANIXE = S19.2E-1-1053-21100 // ANIXE HD;BetaDigital
++tvsp:SPORT = S19.2E-1-1055-5505 // SPORT1 HD;BetaDigital
++tvsp:HSE = S19.2E-1-1053-21104 // HSE24 HD;BetaDigital
++tvsp:QVC:0 = S19.2E-1-1053-21103 // QVC HD;BetaDigital
++tvsp:ORF1 = S19.2E-1-1007-4911 // ORF1 HD;ORF
++tvsp:ORF2 = S19.2E-1-1007-4912 // ORF2W HD;ORF
++tvsp:ORF3 = S19.2E-1-1005-13308 // ORF III HD;ORF
++tvsp:ORFSP = S19.2E-1-1005-13309 // ORF SPORT+ HD;ORF
++tvsp:ATV = S19.2E-1-1003-13228 // ATV HD;ATV
++tvsp:ATV2 = S19.2E-1-1003-13223 // ATV2;ATV
++tvsp:PULS4 = S19.2E-1-1082-20007 // PULS 4 Austria;ProSiebenSat.1
++tvsp:SERVU = S19.2E-1-1007-4913 // ServusTV HD Oesterreich;ServusTV
++tvsp:CIN = S19.2E-133-6-131 // Sky Cinema HD,SkyCineHD;SKY
++tvsp:CIN1 = S19.2E-133-8-134 // Sky Cinema+1 HD,SkyCine1HD;SKY
++tvsp:CIN24 = S19.2E-133-8-135 // Sky Cinema+24 HD,SkyCine24HD;SKY
++tvsp:SKY-H = S19.2E-133-12-107 // Sky Hits HD,SkyHitsHD;SKY
++tvsp:SKY-A = S19.2E-133-11-116 // Sky Action HD,Action HD;SKY
++tvsp:SCIFI = S19.2E-133-12-126 // Syfy HD;SKY
++tvsp:SKYAT = S19.2E-133-13-110 // Sky Atlantic HD,AtlanticHD;SKY
++vdr:000 = S19.2E-133-8-144 // Sky Atlantic+1 HD,SkyAtlantic1HD;SKY
++tvsp:TNT-S = S19.2E-133-11-123 // TNT Serie HD,TNTSerieHD;SKY
++tvsp:GLITZ = S19.2E-133-14-136 // TNT Glitz HD;SKY
++tvsp:FOX = S19.2E-133-10-124 // Fox HD;SKY
++tvsp:AXN = S19.2E-133-10-125 // AXN HD;SKY
++tvsp:13TH = S19.2E-133-13-127 // 13th Street HD,13th St HD;SKY
++tvsp:MGM = S19.2E-133-12-115 // MGM HD;SKY
++tvsp:UNIVE = S19.2E-133-14-101 // Universal HD;SKY
++tvsp:RTL-C = S19.2E-133-9-140 // RTL Crime HD,RTL CrimeHD;SKY
++tvsp:PRO7F = S19.2E-133-14-106 // Pro7 FUN HD;SKY
++tvsp:E! = S19.2E-133-14-128 // E! Entertainm. HD,E! HD;SKY
++tvsp:SP-GE = S19.2E-133-8-137 // Spiegel Geschichte HD,Spiegel G HD;SKY
++tvsp:HDDIS = S19.2E-133-6-130 // Discovery HD,DiscHD;SKY
++tvsp:HISHD = S19.2E-133-11-113 // History HD,HistHD;SKY
++tvsp:N-GHD = S19.2E-133-13-112 // NatGeo HD,NatGeoHD;SKY
++tvsp:N-GW = S19.2E-133-6-118 // Nat Geo Wild HD,NGWildHD;SKY
++tvsp:DCM = S19.2E-133-13-111 // Disney Cinemagic HD,DisneyCinHD;SKY
++tvsp:DJUN = S19.2E-133-8-138 // Disney Junior HD;SKY
++tvsp:SKY3D = S19.2E-133-10-117 // Sky 3D,Sky3D;SKY
++tvsp:SKY-C = S19.2E-133-3-8 // Sky Comedy,Comedy;SKY
++tvsp:SKY-N = S19.2E-133-4-516 // Sky Nostalgie,Nostalgie;SKY
++tvsp:SKY-E = S19.2E-133-4-20 // Sky Emotion,Emotion;SKY
++tvsp:PASS = S19.2E-133-4-29 // RTL Passion,Passion;SKY
++tvsp:SKY-K = S19.2E-133-4-23 // Sky Krimi,SkyKrimi;SKY
++tvsp:MOVTV = S19.2E-133-2-168 // Motorvision TV,Motorvis;SKY
++tvsp:DXD = S19.2E-133-3-28 // Disney XD,DisneyXD;SKY
++tvsp:HEIMA = S19.2E-133-2-22 // Heimatkanal,Heimat;SKY
++tvsp:GOLD = S19.2E-133-2-518 // Goldstar TV,Goldstar;SKY
++tvsp:CLASS = S19.2E-133-3-24 // Classica;SKY
++tvsp:K1CLA = S19.2E-1-1107-17506 // kabel eins classics;ProSiebenSat.1
++tvsp:SAT1E = S19.2E-1-1015-4701 // SAT.1 emotions;ProSiebenSat.1
++tvsp:AMAX = S19.2E-53-1105-4058 // Animax;M7 Group
++tvsp:TNT-F = S19.2E-133-6-405 // TNT Film (TCM),TNT Film;SKY
++tvsp:KINOW = S19.2E-133-4-406 // Kinowelt TV,Kinowelt;SKY
++tvsp:AETV = S19.2E-133-15-57 // A&E;SKY
++tvsp:ROM = S19.2E-133-15-38 // Romance TV,Romance;SKY
++tvsp:RTL-L = S19.2E-1-1089-12030 // RTL Living;CBC
++tvsp:BOOM = S19.2E-133-14-403 // Boomerang;SKY
++tvsp:C-NET = S19.2E-133-14-404 // Cartoon Network,Cartoon Net;SKY
++tvsp:NICKT = S19.2E-1-1078-28682 // Nicktoons (S);MTV Networks Europe
++tvsp:BUTV = S19.2E-133-3-21 // Beate-Uhse.TV,BeateU;SKY
++tvsp:BULI = S19.2E-133-12-105 // Sky Bundesliga HD 1,Sky BuliHD 1;SKY
++vdr:000 = S19.2E-133-6-267 // Sky Bundesliga HD 2,Sky BuliHD 2;SKY
++vdr:000 = S19.2E-133-13-277 // Sky Bundesliga HD 3,Sky BuliHD 3;SKY
++vdr:000 = S19.2E-133-12-287 // Sky Bundesliga HD 4,Sky BuliHD 4;SKY
++vdr:000 = S19.2E-133-11-297 // Sky Bundesliga HD 5,Sky BuliHD 5;SKY
++vdr:000 = S19.2E-133-10-307 // Sky Bundesliga HD 6,Sky BuliHD 6;SKY
++vdr:000 = S19.2E-133-14-317 // Sky Bundesliga HD 7,Sky BuliHD 7;SKY
++vdr:000 = S19.2E-133-14-327 // Sky Bundesliga HD 8,Sky BuliHD 8;SKY
++vdr:000 = S19.2E-133-10-337 // Sky Bundesliga HD 9,Sky BuliHD 9;SKY
++vdr:000 = S19.2E-133-14-257 // Sky Bundesliga HD 10,Sky BuliHD 10;SKY
++vdr:000 = S19.2E-133-10-102 // Sky HD FanZone,HD FanZone;SKY
++tvsp:SNHD = S19.2E-133-12-108 // Sky Sport News HD,SportNewsHD;SKY
++tvsp:HDSPO = S19.2E-133-6-129 // Sky Sport HD 1,SportHD 1;SKY
++tvsp:SHD2 = S19.2E-133-13-114 // Sky Sport HD 2,SportHD 2;SKY
++vdr:000 = S19.2E-133-6-268 // Sky Sport HD 3,SportHD 3;SKY
++vdr:000 = S19.2E-133-13-278 // Sky Sport HD 4,SportHD 4;SKY
++vdr:000 = S19.2E-133-12-288 // Sky Sport HD 5,SportHD 5;SKY
++vdr:000 = S19.2E-133-11-298 // Sky Sport HD 6,SportHD 6;SKY
++vdr:000 = S19.2E-133-10-308 // Sky Sport HD 7,SportHD 7;SKY
++vdr:000 = S19.2E-133-14-318 // Sky Sport HD 8,SportHD 8;SKY
++vdr:000 = S19.2E-133-14-328 // Sky Sport HD 9,SportHD 9;SKY
++vdr:000 = S19.2E-133-10-338 // Sky Sport HD 10,SportHD 10;SKY
++vdr:000 = S19.2E-133-14-258 // Sky Sport HD 11,SportHD 11;SKY
++tvsp:EURO = S19.2E-133-11-132 // Eurosport 1 HD,Eurosp1 HD;SKY
++tvsp:EURO2 = S19.2E-133-9-109 // Eurosport 2 HD,Eurosp2HD;SKY
++tvsp:S1PLU = S19.2E-133-11-122 // Sport1+ HD,Sport1+HD;SKY
++vdr:000 = S19.2E-133-10-119 // Sport1 US HD,Sport1USHD;SKY
++vdr:000 = S19.2E-133-10-309 // Sport1 US HD1,Sport1USHD1;SKY
++tvsp:SPO-A = S19.2E-133-9-143 // Sky Sport Austria HD,SportAutHD;SKY
 diff --git a/PLUGINS/tvsp/configs/epgd.conf b/PLUGINS/tvsp/configs/epgd.conf
 new file mode 100644
 index 0000000..73d5b18
@@ -87,6 +230,148 @@ index 0000000..73d5b18
 +tvsp.saveJson = 0
 +tvsp.saveXml = 0
 \ No newline at end of file
+diff --git a/PLUGINS/tvsp/configs/tvsp-category.xml b/PLUGINS/tvsp/configs/tvsp-category.xml
+new file mode 100644
+index 0000000..9b548c6
+--- /dev/null
++++ b/PLUGINS/tvsp/configs/tvsp-category.xml
+@@ -0,0 +1,136 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<mapping>
++	<!-- Das mapping ist folgendermassen zu lesen:
++		<category name="Serie">
++			<contains>serie</contains>
++			<contains>soap</contains>
++		</category>
++		Wenn der Kategorietext aus dem tvsp-Daten serie oder soap enthält, dann ordner das der Kategorie Serie zu, also schreibe <category>Serie</category>
++		
++		Die Wörte innerhalb von contains müssen kleingeschrieben werden.
++		Die Reihenfolge der catgory-tags ist wichtig! Krimiserie wird daher zu serie eingeordnet, da Serie vor Spielfilm kommt
++	-->
++
++	<categories>
++		<category name="Serie">
++			<contains>reihe</contains>
++			<contains>serie</contains>
++			<contains>telenovela</contains>
++			<contains>soap</contains>
++			<contains>zeichentrick</contains>
++			<contains>arzt-hospital</contains>
++			<contains>clips</contains>
++			<contains>sitcom</contains>
++		</category>
++		<category name="Sport">
++			<contains>poker</contains>
++			<contains>tennis</contains>
++			<contains>formel 1</contains>
++			<contains>eishockey</contains>
++			<contains>golf</contains>
++			<contains>wrestling</contains>
++			<contains>segeln</contains>
++			<contains>nascar</contains>
++			<contains>snowboard</contains>
++			<contains>curling</contains>
++			<contains>motorrad</contains>
++			<contains>darts</contains>
++			<contains>bowling</contains>
++			<contains>eisschnelllauf</contains>
++			<contains>billard</contains>
++			<contains>cricket</contains>
++			<contains>biathlon</contains>
++			<contains>ball</contains>
++			<contains>boxen</contains>
++			<contains>ski</contains>
++			<contains>sport</contains>
++		</category>
++		<category name="Show">
++			<contains>lotterie</contains>
++			<contains>preisverleihung</contains>
++			<contains>volksfest</contains>
++			<contains>zirkus</contains>
++			<contains>gala</contains>
++			<contains>quiz</contains>
++			<contains>show</contains>
++			<contains>unterhal</contains>
++		</category>
++		<category name="Kinder">
++			<contains>kinder</contains>
++			<contains>märchen</contains>
++		</category>
++		<category name="Kultur &amp; Musik">
++			<contains>impressionen</contains>
++			<contains>literatur</contains>
++			<contains>festival</contains>
++			<contains>musical</contains>
++			<contains>theater</contains>
++			<contains>sketch</contains>
++			<contains>lustspiel</contains>
++			<contains>schwank</contains>
++			<contains>konzert</contains>
++			<contains>oper</contains>
++			<contains>comedy</contains>
++			<contains>kabarett</contains>
++			<contains>kunst</contains>
++			<contains>musik</contains>
++			<contains>satire</contains>
++		</category>
++		<category name="Information">
++			<contains>dokumenta</contains>
++		</category>
++		<category name="Spielfilm">
++			<contains>action</contains>
++			<contains>drama</contains>
++			<contains>film</contains>
++			<contains>fiction</contains>
++			<contains>horror</contains>
++			<contains>krimi</contains>
++			<contains>komödie</contains>
++			<contains>thriller</contains>
++			<contains>movie</contains>
++		</category>
++		<category name="Information">
++			<contains>interview</contains>
++			<contains>sitzung</contains>
++			<contains>ansprache</contains>
++			<contains>gottesdienst</contains>
++			<contains>bürgersendung</contains>
++			<contains>informationen</contains>
++			<contains>umwelt</contains>
++			<contains>geschichte</contains>
++			<contains>tiere</contains>
++			<contains>technik</contains>
++			<contains>verkehr</contains>
++			<contains>recht</contains>
++			<contains>porträt</contains>
++			<contains>gespräch</contains>
++			<contains>vortrag</contains>
++			<contains>bericht</contains>
++			<contains>bildung</contains>
++			<contains>boulevard</contains>
++			<contains>diskussion</contains>
++			<contains>doku</contains>
++			<contains>forschung</contains>
++			<contains>magazin</contains>
++			<contains>nachrichten</contains>
++			<contains>natur</contains>
++			<contains>polit</contains>
++			<contains>ratgeber</contains>
++			<contains>reise</contains>
++			<contains>report</contains>
++			<contains>reportage</contains>
++			<contains>soziales</contains>
++			<contains>wetter</contains>
++			<contains>wissen</contains>
++			<contains>wirtschaft</contains>
++			<contains>information</contains>
++			<contains>pr.-info</contains>
++			<contains>mode</contains>
++			<contains>sprachkurs</contains>
++			<contains>rückblick</contains>
++		</category>
++	</categories>
++
++</mapping>
++
 diff --git a/PLUGINS/tvsp/configs/tvsp-iso-8859-1.xsl b/PLUGINS/tvsp/configs/tvsp-iso-8859-1.xsl
 new file mode 100644
 index 0000000..4a51f1a
@@ -117,16 +402,20 @@ index 0000000..75d4b5b
 +</xsl:stylesheet>
 diff --git a/PLUGINS/tvsp/configs/tvsp.xsl b/PLUGINS/tvsp/configs/tvsp.xsl
 new file mode 100644
-index 0000000..ee39b73
+index 0000000..81813ce
 --- /dev/null
 +++ b/PLUGINS/tvsp/configs/tvsp.xsl
-@@ -0,0 +1,180 @@
+@@ -0,0 +1,215 @@
 +<xsl:stylesheet version="1.0"
 +                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 +                xmlns="http://www.w3.org/TR/xhtml1/strict"
-+                xmlns:date="http://exslt.org/dates-and-times">
++                xmlns:exsl="http://exslt.org/common"
++                xmlns:date="http://exslt.org/dates-and-times"
++                xmlns:str="http://exslt.org/strings">
 +
 +
++<xsl:variable name="mapping" select="document('tvsp-category.xml')/mapping" />
++<xsl:variable name="categorieMapping" select="$mapping/categories/category/contains" />
 +
 +<xsl:template match="/">
 +
@@ -138,7 +427,7 @@ index 0000000..ee39b73
 +
 +	<event>
 +
-+<!-- bis eventid auf im Backend erweitert
++<!-- bis eventid im Backend erweitert
 +	<xsl:attribute name="id"><xsl:value-of select="id"/></xsl:attribute>
 +-->
 +	<xsl:attribute name="id"><xsl:value-of select="number(substring(id,4))"/></xsl:attribute>
@@ -167,21 +456,17 @@ index 0000000..ee39b73
 +            <xsl:when test="sart_id = 'SE'">
 +                <category>Serie</category>
 +            </xsl:when>
-+            <xsl:when test="sart_id = 'RE'">
-+                <category>Information</category>
-+            </xsl:when>
 +            <xsl:when test="sart_id = 'KIN'">
 +                <category>Kinder</category>
 +            </xsl:when>
-+            <xsl:when test="sart_id = 'SP='">
-+                <category>SPORT</category>
++            <xsl:when test="sart_id = 'SPO'">
++                <category>Sport</category>
 +            </xsl:when>
-+            <xsl:when test="sart_id = 'U'">
-+                <category>Unterhaltung</category>
-+            </xsl:when>
-+            <xsl:when test="sart_id = 'AND'">
-+                <category></category>
-+            </xsl:when>
++            <xsl:otherwise>
++                <xsl:call-template name="mapping">
++                <xsl:with-param name="str" select="genre" />
++                </xsl:call-template>
++            </xsl:otherwise>
 +        </xsl:choose>
 +
 +
@@ -217,20 +502,51 @@ index 0000000..ee39b73
 +	<xsl:if test="string-length(anchorman)"><moderator><xsl:value-of select="anchorman"/></moderator></xsl:if>
 +	<xsl:if test="string-length(actors)"><actor><xsl:value-of select="actors"/></actor></xsl:if>
 +	<xsl:if test="string-length(studio_guests)"><guest><xsl:value-of select="studio_guests"/></guest></xsl:if>
-+<!--
-+	<xsl:if test="string-length(authorComment)"><guest><xsl:value-of select="authorComment"/></guest></xsl:if>
-+-->
++	<xsl:if test="string-length(authorComment)"><commentator><xsl:value-of select="authorComment"/></commentator></xsl:if>
 +
 +	<xsl:if test="string-length(text)"><longdescription><xsl:value-of select="text"/></longdescription></xsl:if>
 +	<xsl:if test="string-length(conclusion)"><shortreview><xsl:value-of select="conclusion"/></shortreview></xsl:if>
-+	<xsl:if test="string-length(currentTopics)"><topic><xsl:value-of select="currentTopics"/></topic></xsl:if>
++	<xsl:if test="string-length(currentTopics)"><topic><xsl:value-of select="str:replace(currentTopics,'|','/')"/></topic></xsl:if>
 +	<xsl:if test="string-length(preview)"><shortdescription><xsl:value-of select="preview"/></shortdescription></xsl:if>
 +
-+	<xsl:variable name="TIPP">
-+	    <xsl:if test="isTipOfTheDay = 1"><xsl:text>[TagesTipp]</xsl:text></xsl:if>
-+	    <xsl:if test="isTopTip = 1"><xsl:text>[Tipp]</xsl:text></xsl:if>
-+	</xsl:variable>
-+	<xsl:if test="isTipOfTheDay = 1 or isTopTip = 1"><tipp><xsl:value-of select="$TIPP"/></tipp></xsl:if>
++        <xsl:choose>
++	    <xsl:when test="commentBroadcast = 'DIE BESTEN FILME ALLER ZEITEN'"><tipp>GoldTipp</tipp></xsl:when>
++	    <xsl:when test="isTopTip = 1"><tipp>TagesTipp</tipp></xsl:when>
++	    <xsl:when test="isTipOfTheDay = 1"><tipp>TopTipp</tipp></xsl:when>
++        </xsl:choose>
++
++        <xsl:choose>
++            <xsl:when test="commentBroadcast = 'DIE BESTEN FILME ALLER ZEITEN'">
++                <txtrating>Einer der besten Filme aller Zeiten</txtrating>
++            </xsl:when>
++            <xsl:when test="thumbIdNumeric = 3">
++                <txtrating>Sehr empfehlenswert</txtrating>
++            </xsl:when>
++            <xsl:when test="thumbIdNumeric = 2">
++                <txtrating>Empfehlenswert</txtrating>
++            </xsl:when>
++            <xsl:when test="thumbIdNumeric = 1">
++                <txtrating>Eher durchschnittlich</txtrating>
++            </xsl:when>
++            <xsl:when test="thumbIdNumeric = 0">
++                <txtrating>Eher uninteressant</txtrating>
++            </xsl:when>
++        </xsl:choose>
++
++        <xsl:choose>
++            <xsl:when test="commentBroadcast = 'DIE BESTEN FILME ALLER ZEITEN'"><numrating>5</numrating></xsl:when>
++            <xsl:when test="string-length(thumbIdNumeric)"><numrating><xsl:value-of select="thumbIdNumeric +1"/></numrating></xsl:when>
++        </xsl:choose>
++
++        <xsl:variable name="BEWERTUNG">
++            <xsl:if test="ratingHumor>0"><xsl:text> / Spaß </xsl:text><xsl:value-of select="substring('**********', 1, ratingHumor)"/></xsl:if>
++            <xsl:if test="ratingAction>0"><xsl:text> / Action </xsl:text><xsl:value-of select="substring('**********', 1, ratingAction)"/></xsl:if>
++            <xsl:if test="ratingErotic>0"><xsl:text> / Erotik </xsl:text><xsl:value-of select="substring('**********', 1, ratingErotic)"/></xsl:if>
++            <xsl:if test="ratingSuspense>0"><xsl:text> / Spannung </xsl:text><xsl:value-of select="substring('**********', 1, ratingSuspense)"/></xsl:if>
++            <xsl:if test="ratingDemanding>0"><xsl:text> / Anspruch </xsl:text><xsl:value-of select="substring('**********', 1, ratingDemanding)"/></xsl:if>
++        </xsl:variable>
++        <xsl:if test="string-length($BEWERTUNG)"><rating><xsl:value-of select="$BEWERTUNG"/></rating></xsl:if>
++
 +
 +        <xsl:variable name="AUDIO">
 +            <xsl:if test="isStereo=1"><xsl:text> Stereo</xsl:text></xsl:if>
@@ -244,17 +560,6 @@ index 0000000..ee39b73
 +        </xsl:variable>
 +	<xsl:if test="string-length($FLAGS)"><flags><xsl:value-of select="normalize-space($FLAGS)"/></flags></xsl:if>
 +
-+        <xsl:variable name="BEWERTUNG">
-+            <xsl:if test="ratingHumor>0"><xsl:text> / Spaß </xsl:text><xsl:value-of select="substring('**********', 1, ratingHumor)"/></xsl:if>
-+            <xsl:if test="ratingAction>0"><xsl:text> / Action </xsl:text><xsl:value-of select="substring('**********', 1, ratingAction)"/></xsl:if>
-+            <xsl:if test="ratingErotic>0"><xsl:text> / Erotik </xsl:text><xsl:value-of select="substring('**********', 1, ratingErotic)"/></xsl:if>
-+            <xsl:if test="ratingSuspense>0"><xsl:text> / Spannung </xsl:text><xsl:value-of select="substring('**********', 1, ratingSuspense)"/></xsl:if>
-+            <xsl:if test="ratingDemanding>0"><xsl:text> / Anspruch </xsl:text><xsl:value-of select="substring('**********', 1, ratingDemanding)"/></xsl:if>
-+        </xsl:variable>
-+        <xsl:if test="string-length($BEWERTUNG)"><rating><xsl:value-of select="$BEWERTUNG"/></rating></xsl:if>
-+
-+        <xsl:if test="string-length(thumbIdNumeric)"><numrating><xsl:value-of select="thumbIdNumeric"/></numrating></xsl:if>
-+
 +
 +        <xsl:variable name="BILDER">
 +            <xsl:for-each select="images/image">
@@ -266,7 +571,10 @@ index 0000000..ee39b73
 +            </xsl:for-each>
 +        </xsl:variable>
 +
-+	<images><xsl:value-of select="translate(normalize-space($BILDER),' ',',')"/></images>
++        <xsl:if test="string-length(normalize-space($BILDER))">
++            <images><xsl:value-of select="translate(normalize-space($BILDER),' ',',')"/></images>
++            <imagetype>jpg</imagetype>
++        </xsl:if>
 +
 +<!--
 +-->
@@ -281,8 +589,7 @@ index 0000000..ee39b73
 +
 +</xsl:template>
 +
-+
-+  <xsl:template name="GetLastSegment">
++<xsl:template name="GetLastSegment">
 +    <xsl:param name="value" />
 +    <xsl:param name="separator" select="'.'" />
 +
@@ -297,18 +604,31 @@ index 0000000..ee39b73
 +        <xsl:value-of select="$value" />
 +      </xsl:otherwise>
 +    </xsl:choose>
-+  </xsl:template>
++ </xsl:template>
 +
++<xsl:template name="mapping">
++    <xsl:param name="str" select="." />
++   <xsl:variable name="value" select="translate($str,'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖU', 'abcdefghijklmnopqrstuvwxyzäöü')" />
++   <xsl:variable name="map" select="$categorieMapping[contains($value, .)]/../@name" />....
++    <xsl:choose>
++        <xsl:when test="string-length($map)">
++          <category><xsl:value-of select="$map"/></category>
++       </xsl:when>
++        <xsl:otherwise>
++          <category><xsl:text>Sonstige</xsl:text></category>
++       </xsl:otherwise>
++    </xsl:choose>
++</xsl:template>
 +
 +</xsl:stylesheet>
 diff --git a/PLUGINS/tvsp/tvsp.c b/PLUGINS/tvsp/tvsp.c
 new file mode 100644
-index 0000000..eaaacbb
+index 0000000..86b556e
 --- /dev/null
 +++ b/PLUGINS/tvsp/tvsp.c
-@@ -0,0 +1,639 @@
+@@ -0,0 +1,630 @@
 +//
-+// Created by chris on 24.04.16.
++// Created by chriszero on 24.04.16.
 +// For available channels check: https://live.tvspielfilm.de/static/content/channel-list/livetv
 +//
 +
@@ -325,17 +645,17 @@ index 0000000..eaaacbb
 +    saveXml = false;
 +}
 +
-+int Tvsp::init(cEpgd* aObject, int aUtf8) {
++int Tvsp::init(cEpgd *aObject, int aUtf8) {
 +    Plugin::init(aObject, aUtf8);
 +
-+    if(pxsltStylesheet == NULL) {
++    if (pxsltStylesheet == NULL) {
 +        pxsltStylesheet = loadXSLT(getSource(), confDir, utf8);
 +    }
 +
 +    return done;
 +}
 +
-+int Tvsp::initDb(){
++int Tvsp::initDb() {
 +    int status = success;
 +
 +    // --------
@@ -358,7 +678,7 @@ index 0000000..eaaacbb
 +     * select tag from fileref
 +     * where name = ?;
 +     */
-+    selectByTag  = new cDbStatement(obj->fileDb);
++    selectByTag = new cDbStatement(obj->fileDb);
 +
 +    selectByTag->build("select ");
 +    selectByTag->bind("Tag", cDBS::bndOut);
@@ -406,7 +726,8 @@ index 0000000..eaaacbb
 +    stmtMarkOldEvents = new cDbStatement(obj->eventsDb);
 +
 +    stmtMarkOldEvents->build("update %s set ", obj->eventsDb->TableName());
-+    stmtMarkOldEvents->build("updflg = case when updflg in (%s) then 'D' else updflg end, ", cEventState::getDeletable());
++    stmtMarkOldEvents->build("updflg = case when updflg in (%s) then 'D' else updflg end, ",
++                             cEventState::getDeletable());
 +    stmtMarkOldEvents->build("delflg = 'Y', updsp = unix_timestamp()");
 +    stmtMarkOldEvents->build(" where source = '%s'", getSource());
 +    stmtMarkOldEvents->build(" and  (source, fileref) not in (select source,fileref from fileref)");
@@ -419,9 +740,8 @@ index 0000000..eaaacbb
 +int Tvsp::ready() {
 +    static int count = na;
 +
-+    if (count == na)
-+    {
-+        char* where;
++    if (count == na) {
++        char *where;
 +
 +        asprintf(&where, "source = '%s'", getSource());
 +
@@ -476,7 +796,7 @@ index 0000000..eaaacbb
 +
 +        std::string jsonData;
 +        int state = downloadJson(extid, date, eTag, jsonData);
-+        if(state == 304) {
++        if (state == 304) {
 +            //cached, skip
 +            tell(0, "Downloaded '%s' for %s not changed, skipping.", extid.c_str(), date.c_str());
 +            stat->nonUpdates++;
@@ -488,8 +808,8 @@ index 0000000..eaaacbb
 +            stat->bytes += jsonData.length();
 +            stat->files++;
 +
-+            tell(0, "Downloaded '%s' for %s with (%d) Bytes%s", extid.c_str(), date.c_str(), (int)jsonData.length()
-+                    , inFileRef ? ", changed since last load." : "");
++            tell(0, "Downloaded '%s' for %s with (%d) Bytes%s", extid.c_str(), date.c_str(), (int) jsonData.length(),
++                 inFileRef ? ", changed since last load." : "");
 +
 +            // convert json to xml
 +            std::string xmlData;
@@ -498,14 +818,14 @@ index 0000000..eaaacbb
 +            // Collect image URI's
 +            collectImageUris(xmlData);
 +
-+            if(saveJson) {
++            if (saveJson) {
 +                SaveFile(jsonData, filename.str() + ".json");
 +            }
 +            if (saveXml) {
 +                SaveFile(xmlData, filename.str() + ".xml");
 +            }
 +
-+            if(processXml(xmlData, extid, filename.str()) != success) {
++            if (processXml(xmlData, extid, filename.str()) != success) {
 +                stat->rejected++;
 +            }
 +            else {
@@ -518,7 +838,7 @@ index 0000000..eaaacbb
 +                obj->fileDb->setValue("ExternalId", extid.c_str());
 +                obj->fileDb->setValue("FileRef", fileRef.str().c_str());
 +                obj->fileDb->setValue("Tag", eTag.c_str());
-+                if(inFileRef)
++                if (inFileRef)
 +                    obj->fileDb->update();
 +                else
 +                    obj->fileDb->store();
@@ -553,7 +873,7 @@ index 0000000..eaaacbb
 +    // Transform the generated XML
 +    transformedDoc = xsltApplyStylesheet(pxsltStylesheet, doc, 0);
 +    xmlFreeDoc(doc);
-+    if(transformedDoc == NULL) {
++    if (transformedDoc == NULL) {
 +        // huh? some error...
 +        return fail;
 +    }
@@ -562,9 +882,8 @@ index 0000000..eaaacbb
 +     * Get event-nodes from xml, parse and insert node by node
 +     */
 +
-+    if (!(xmlRoot = xmlDocGetRootElement(transformedDoc)))
-+    {
-+        tell(0, "Invalid xml document returned from xslt for '%s', ignoring", fileRef.c_str());
++    if (!(xmlRoot = xmlDocGetRootElement(transformedDoc))) {
++        tell(1, "Invalid xml document returned from xslt for '%s', ignoring", fileRef.c_str());
 +        return fail;
 +    }
 +
@@ -572,25 +891,22 @@ index 0000000..eaaacbb
 +    obj->mapDb->setValue("ExternalId", extid.c_str());
 +    obj->mapDb->setValue("Source", getSource());
 +
-+    for (int f = selectId->find(); f && obj->dbConnected(); f = selectId->fetch())
-+    {
-+        const char* channelId = obj->mapDb->getStrValue("ChannelId");
++    for (int f = selectId->find(); f && obj->dbConnected(); f = selectId->fetch()) {
++        const char *channelId = obj->mapDb->getStrValue("ChannelId");
 +
-+        for (xmlNodePtr node = xmlRoot->xmlChildrenNode; node && obj->dbConnected(); node = node->next)
-+        {
++        for (xmlNodePtr node = xmlRoot->xmlChildrenNode; node && obj->dbConnected(); node = node->next) {
 +            int insert;
-+            char* prop = 0;
++            char *prop = 0;
 +            int id;
 +
 +            // skip all unexpected elements
 +
-+            if (node->type != XML_ELEMENT_NODE || strcmp((char*)node->name, "event") != 0)
++            if (node->type != XML_ELEMENT_NODE || strcmp((char *) node->name, "event") != 0)
 +                continue;
 +
 +            // get/check id
 +
-+            if (!(prop = (char*)xmlGetProp(node, (xmlChar*)"id")) || !*prop || !(id = atoi(prop)))
-+            {
++            if (!(prop = (char *) xmlGetProp(node, (xmlChar *) "id")) || !*prop || !(id = atoi(prop))) {
 +                xmlFree(prop);
 +                tell(0, "Missing event id, ignoring!");
 +                continue;
@@ -617,12 +933,11 @@ index 0000000..eaaacbb
 +
 +            time_t mergesp = obj->mapDb->getIntValue("MergeSp");
 +            long starttime = obj->eventsDb->getIntValue("StartTime");
-+            int merge = obj->mapDb->getIntValue("Merge");
++            long merge = obj->mapDb->getIntValue("Merge");
 +
 +            // store ..
 +
-+            if (insert)
-+            {
++            if (insert) {
 +                // handle insert
 +
 +                obj->eventsDb->setValue("Version", 0xFF);
@@ -632,21 +947,21 @@ index 0000000..eaaacbb
 +                if (starttime <= mergesp)
 +                    obj->eventsDb->setCharValue("UpdFlg", cEventState::usInactive);
 +                else
-+                    obj->eventsDb->setCharValue("UpdFlg", merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
++                    obj->eventsDb->setCharValue("UpdFlg",
++                                                merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
 +
 +                obj->eventsDb->insert();
 +            }
-+            else
-+            {
++            else {
 +                if (obj->eventsDb->hasValue("DelFlg", "Y"))
 +                    obj->eventsDb->setValue("DelFlg", "N");
 +
-+                if (obj->eventsDb->hasValue("UpdFlg", "D"))
-+                {
++                if (obj->eventsDb->hasValue("UpdFlg", "D")) {
 +                    if (starttime <= mergesp)
 +                        obj->eventsDb->setCharValue("UpdFlg", cEventState::usInactive);
 +                    else
-+                        obj->eventsDb->setCharValue("UpdFlg", merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
++                        obj->eventsDb->setCharValue("UpdFlg",
++                                                    merge > 1 ? cEventState::usMergeSpare : cEventState::usActive);
 +                }
 +
 +                obj->eventsDb->update();
@@ -675,19 +990,19 @@ index 0000000..eaaacbb
 +int Tvsp::collectImageUris(const std::string &xmlDoc) {
 +    // get all Images via Xpath "//image/sizeX [X = 1,2,3,4]"
 +
-+    if(!EpgdConfig.getepgimages)
++    if (!EpgdConfig.getepgimages)
 +        return success;
 +
 +    /* Init libxml */
 +    xmlInitParser();
 +    stringstream xpathExprSS;
-+    xpathExprSS << "//image[position() <= "  << EpgdConfig.maximagesperevent << "]/size" << imageSize;
++    xpathExprSS << "//image[position() <= " << EpgdConfig.maximagesperevent << "]/size" << imageSize;
 +    std::string xpathExpr = xpathExprSS.str();
 +    xmlDocPtr doc = xmlReadMemory(xmlDoc.c_str(), xmlDoc.length(), "noname.xml", NULL, 0);
 +
 +    /* Create xpath evaluation context */
 +    xmlXPathContextPtr xpathCtx = xmlXPathNewContext(doc);
-+    if(xpathCtx == NULL) {
++    if (xpathCtx == NULL) {
 +        tell(1, "Error: unable to create new XPath context");
 +        xmlFreeDoc(doc);
 +        return fail;
@@ -695,15 +1010,17 @@ index 0000000..eaaacbb
 +
 +    /* Evaluate xpath expression */
 +    xmlXPathObjectPtr xpathObj = xmlXPathEvalExpression(BAD_CAST xpathExpr.c_str(), xpathCtx);
-+    xmlChar *image;
++    xmlChar *image = NULL;
 +
 +    if (xpathObj) {
 +        xmlNodeSetPtr nodeset = xpathObj->nodesetval;
-+        for (int i=0; i < nodeset->nodeNr; i++) {
-+            image = xmlNodeListGetString(doc, nodeset->nodeTab[i]->xmlChildrenNode, 1);
-+            // push the URI to the Queue
-+            imagefileSet.insert(std::string((char*)image));
-+            xmlFree(image);
++        if (nodeset) {
++            for (int i = 0; i < nodeset->nodeNr; i++) {
++                image = xmlNodeListGetString(doc, nodeset->nodeTab[i]->xmlChildrenNode, 1);
++                // push the URI to the Queue
++                imagefileSet.insert(std::string((char *) image));
++                xmlFree(image);
++            }
 +        }
 +    }
 +
@@ -726,25 +1043,29 @@ index 0000000..eaaacbb
 +
 +    path << EpgdConfig.cachePath << "/" << getSource() << "/";
 +
++    tell(0, "Downloading images...");
++    int n = 0;
 +    for (std::set<std::string>::iterator it = imagefileSet.begin(); it != imagefileSet.end(); ++it) {
 +        // check if file is not on disk
 +        std::size_t found = it->find_last_of("/");
-+        if(found == std::string::npos) continue;
-+        std::string filename = it->substr(found+1);
++        if (found == std::string::npos) continue;
++        std::string filename = it->substr(found + 1);
 +        std::string fullpath = path.str() + filename;
 +
 +        if (!fileExists(fullpath.c_str())) {
 +
 +            data.clear();
 +            if (obj->downloadFile(it->c_str(), fileSize, &data, 30, userAgent()) != success) {
-+                tell(0, "Download at '%s' failed", it->c_str());
++                tell(1, "Download at '%s' failed", it->c_str());
 +                continue;
 +            }
 +            obj->storeToFs(&data, filename.c_str(), getSource());
-+            tell(0, "Downloaded '%s' to '%s'", it->c_str(), fullpath.c_str());
++            tell(4, "Downloaded '%s' to '%s'", it->c_str(), fullpath.c_str());
++            n++;
 +        }
 +    }
 +    imagefileSet.clear();
++    tell(0, "Downloaded %d images", n);
 +}
 +
 +int Tvsp::getPicture(const char *imagename, const char *fileRef, MemoryStruct *data) {
@@ -763,7 +1084,7 @@ index 0000000..eaaacbb
 +    int size;
 +    curl.downloadFile(uri.c_str(), size, &memoryStruct, 30, userAgent(), headerList);
 +
-+    if(memoryStruct.headers.find("ETag") != memoryStruct.headers.end()) {
++    if (memoryStruct.headers.find("ETag") != memoryStruct.headers.end()) {
 +        etag = memoryStruct.headers["ETag"];
 +    }
 +    jsonDoc = std::string(memoryStruct.memory, memoryStruct.size);
@@ -778,52 +1099,52 @@ index 0000000..eaaacbb
 +
 +    // get iterator for key/value
 +    void *iter = json_object_iter(jdata);
-+    while(iter)
-+    {
++    while (iter) {
 +        key = json_object_iter_key(iter);
 +        value = json_object_iter_value(iter);
 +
 +        /* use key and value ... */
-+        if(json_is_array(value)) {
-+          // create new subnode
-+          size_t index;
-+          json_t *arrValue;
++        if (json_is_array(value)) {
++            // create new subnode
++            size_t index;
++            json_t *arrValue;
 +
-+          xmlNodePtr subnode = xmlNewChild(parent, NULL, BAD_CAST key, NULL);
++            xmlNodePtr subnode = xmlNewChild(parent, NULL, BAD_CAST key, NULL);
 +
-+          std::ostringstream actors;
-+          json_array_foreach(value, index, arrValue) {
-+              // if images or actors -> create new parent
-+            std::string mykey(key);
-+            if(mykey.find("images") != std::string::npos) {
-+               xmlNodePtr subsubnode = xmlNewChild(subnode, NULL, BAD_CAST "image", NULL);
-+               createXmlNode(arrValue, key, subsubnode);
-+            } else  if(mykey.find("actors") != std::string::npos) {
-+              actors << createActorsString(arrValue);
-+              //createXmlNodeActors(arrValue, key, subnode);
-+            } else {
-+              createXmlNode(arrValue, key, subnode);
++            std::ostringstream actors;
++            size_t arraySize = json_array_size(value);
++            json_array_foreach(value, index, arrValue) {
++                // if images or actors -> create new parent
++                std::string mykey(key);
++                if (mykey.find("images") != std::string::npos) {
++                    xmlNodePtr subsubnode = xmlNewChild(subnode, NULL, BAD_CAST "image", NULL);
++                    createXmlNode(arrValue, key, subsubnode);
++                } else if (mykey.find("actors") != std::string::npos) {
++                    actors << createActorsString(arrValue);
++                    if(index < arraySize -1 )
++                        actors << ", ";
++                } else {
++                    createXmlNode(arrValue, key, subnode);
++                }
++
 +            }
-+
-+          }
-+          if(actors.str().size() > 1) {
-+            xmlAddChild(subnode, xmlNewText(BAD_CAST actors.str().c_str()));
-+            //xmlNewTextChild(parent, NULL, BAD_CAST key, BAD_CAST strValue);
-+          }
++            if (actors.str().size() > 1) {
++                xmlAddChild(subnode, xmlNewText(BAD_CAST actors.str().c_str()));
++            }
 +        }
 +        else {
-+          if(json_is_number(value)) {
-+            snprintf(buffer, 64, "%lld", json_integer_value(value));
-+            strValue =  (const char*)&buffer;
-+          } else if (json_is_boolean(value)){
-+              // only jannson 2.7 // strValue = json_boolean_value(value) ? "1" : "0";
-+              strValue = json_is_true(value) ? "1" : "0";
-+          } else if (json_is_string(value)){
-+              strValue = json_string_value(value);
-+          } else {
-+            strValue = NULL;
-+          }
-+          xmlNewTextChild(parent, NULL, BAD_CAST key, BAD_CAST strValue);
++            if (json_is_number(value)) {
++                snprintf(buffer, 64, "%lld", json_integer_value(value));
++                strValue = (const char *) &buffer;
++            } else if (json_is_boolean(value)) {
++                // only jannson 2.7 // strValue = json_boolean_value(value) ? "1" : "0";
++                strValue = json_is_true(value) ? "1" : "0";
++            } else if (json_is_string(value)) {
++                strValue = json_string_value(value);
++            } else {
++                strValue = NULL;
++            }
++            xmlNewTextChild(parent, NULL, BAD_CAST key, BAD_CAST strValue);
 +        }
 +
 +        // next iterator
@@ -832,38 +1153,34 @@ index 0000000..eaaacbb
 +}
 +
 +std::string Tvsp::createActorsString(json_t *jdata) {
-+  const char *key;
-+  json_t *value;
++    const char *key;
++    json_t *value;
 +
-+  std::ostringstream buf;
++    std::ostringstream buf;
 +
-+  void *iter = json_object_iter(jdata);
-+  while(iter)
-+  {
-+    key = json_object_iter_key(iter);
-+    value = json_object_iter_value(iter);
++    void *iter = json_object_iter(jdata);
++    while (iter) {
++        key = json_object_iter_key(iter);
++        value = json_object_iter_value(iter);
 +
-+    buf << json_string_value(value) << " (" << key << ");";
-+
-+    iter = json_object_iter_next(jdata, iter);
-+  }
-+  return buf.str();
++        buf << json_string_value(value) << " (" << key << ")";
++        iter = json_object_iter_next(jdata, iter);
++    }
++    return buf.str();
 +}
 +
 +int Tvsp::jsonToXml(const std::string &jsonDoc, std::string &xmlDoc) {
 +    json_t *root;
 +    json_error_t error;
-+    root = json_loads(jsonDoc.c_str() , 0, &error);
++    root = json_loads(jsonDoc.c_str(), 0, &error);
 +
-+    if(!root)
-+    {
-+        fprintf(stderr, "error: on line %d: %s\n", error.line, error.text);
++    if (!root) {
++        tell(1, "error: on line %d: %s\n", error.line, error.text);
 +        return fail;
 +    }
 +
-+    if(!json_is_array(root))
-+    {
-+        fprintf(stderr, "error: root is not an object\n");
++    if (!json_is_array(root)) {
++        tell(1, "error: root is not an object\n");
 +        return fail;
 +    }
 +
@@ -876,9 +1193,8 @@ index 0000000..eaaacbb
 +    root_node = xmlNewNode(NULL, BAD_CAST "Tv-Spielfilm");
 +    xmlDocSetRootElement(doc, root_node);
 +
-+    for(unsigned int i = 0; i < json_array_size(root); i++)
-+    {
-+        json_t* data = json_array_get(root, i);
++    for (unsigned int i = 0; i < json_array_size(root); i++) {
++        json_t *data = json_array_get(root, i);
 +
 +        // Create "Event" Node
 +        node = xmlNewChild(root_node, NULL, BAD_CAST "Event", NULL);
@@ -889,7 +1205,7 @@ index 0000000..eaaacbb
 +    xmlChar *xmlbuff = 0;
 +    int buffersize = 0;
 +    xmlDocDumpFormatMemory(doc, &xmlbuff, &buffersize, 1);
-+    xmlDoc = std::string((char*)xmlbuff, buffersize);
++    xmlDoc = std::string((char *) xmlbuff, buffersize);
 +    /*free the document */
 +    xmlFreeDoc(doc);
 +    free(xmlbuff);
@@ -907,25 +1223,21 @@ index 0000000..eaaacbb
 +std::string Tvsp::getRelativeDate(int offsetDays) {
 +    time_t t = time(0);   // get time now
 +    t += (offsetDays * 60 * 60 * 24);
-+    struct tm * now = localtime( & t );
++    struct tm *now = localtime(&t);
 +    std::stringstream date;
 +    date << (now->tm_year + 1900) << '-'
 +    << std::setfill('0') << std::setw(2) << (now->tm_mon + 1)
-+    << '-' <<  std::setfill('0') << std::setw(2) << now->tm_mday;
++    << '-' << std::setfill('0') << std::setw(2) << now->tm_mday;
 +    return date.str();
 +}
 +
-+void Tvsp::SaveFile(const std::string &xmlDoc, std::string filename)
-+{
++void Tvsp::SaveFile(const std::string &xmlDoc, std::string filename) {
 +    std::ofstream myfile;
-+    std::string path = std::string(EpgdConfig.cachePath) + "/" + getSource();
-+    chkDir(path.c_str());
++    std::string path = std::string(EpgdConfig.cachePath) + "/" + getSource() + "/";
 +
-+    path = path + "/debug/";
-+
-+    if(chkDir(path.c_str())) {
++    if (chkDir(path.c_str()) == success) {
 +        path = path + filename;
-+        myfile.open(path.c_str(), std::ios::out);
++        myfile.open(path.c_str(), std::ios::out | std::ios::trunc);
 +        myfile << xmlDoc;
 +        myfile.close();
 +        tell(0, "Saved '%s'", path.c_str());
@@ -933,8 +1245,7 @@ index 0000000..eaaacbb
 +}
 +
 +
-+
-+extern "C" void* EPGPluginCreator() { return new Tvsp(); }
++extern "C" void *EPGPluginCreator() { return new Tvsp(); }
 +
 +
 +
@@ -948,12 +1259,12 @@ index 0000000..eaaacbb
 +
 diff --git a/PLUGINS/tvsp/tvsp.h b/PLUGINS/tvsp/tvsp.h
 new file mode 100644
-index 0000000..a50c652
+index 0000000..e34b68a
 --- /dev/null
 +++ b/PLUGINS/tvsp/tvsp.h
-@@ -0,0 +1,92 @@
+@@ -0,0 +1,86 @@
 +//
-+// Created by chris on 24.04.16.
++// Created by chriszero on 24.04.16.
 +//
 +
 +#ifndef VDR_EPG_DAEMON_TVSP_H
@@ -976,10 +1287,6 @@ index 0000000..a50c652
 +#include "../../epgd.h"
 +#include "../../lib/common.h"
 +#include "../../lib/curl.h"
-+
-+//#include "epgd.h"
-+//#include "common.h"
-+//#include "curl.h"
 +
 +class Tvsp : public Plugin {
 +private:
@@ -1030,9 +1337,7 @@ index 0000000..a50c652
 +
 +    virtual int atConfigItem(const char *Name, const char *Value);
 +
-+    virtual const char *getSource() {
-+        return "tvsp";
-+    }
++    virtual const char *getSource() { return "tvsp"; }
 +
 +    virtual int getPicture(const char *imagename, const char *fileRef, MemoryStruct *data);
 +
