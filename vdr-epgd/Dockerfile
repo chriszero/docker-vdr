@@ -30,7 +30,7 @@ RUN apt-get update -qq && \
     tar xzf vdr-epg-daemon-1.0.79.tar.gz && \
     cd vdr-epg-daemon* && \
     patch -p1 < ../tvm-http.diff && \
-    patch -p1 < ../tvsp-http.patch && \
+    git clone https://github.com/chriszero/epgd-plugin-tvsp.git ./PLUGINS/tvsp && \
     make all install &&\
      \
      cd /tmp && \
