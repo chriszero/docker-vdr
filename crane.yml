@@ -15,7 +15,7 @@ containers:
       volume: ["volumes/rec:/recordings"]
       volumes-from: ["vdr.data"]
       link: ["database"]
-      publish: ["2004:2004", "3000:3000", "4010-4020:4010-4020/udp", "6419:6419", "8002:8002", "8008:8008"]
+      publish: ["2004:2004", "3000:3000", "4010-4020:4010-4020/udp", "6419:6419", "8002:8002", "8008:8008" , "34890:34890"]
       detach: true
       restart: always
 
