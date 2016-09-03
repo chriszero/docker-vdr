@@ -3,7 +3,6 @@ MAINTAINER chriszero <zerov83@gmail.com>
 
 WORKDIR /tmp
 
-COPY src/* ./
 RUN apt-get update -qq && \
     apt-get install -qy build-essential \
       git \
@@ -26,10 +25,10 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.3.tar.gz && \
-    tar xzf vdr-epg-daemon-1.1.3.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.14.tar.gz && \
+    tar xzf vdr-epg-daemon-1.1.14.tar.gz && \
     cd vdr-epg-daemon* && \
-    patch -p1 < ../tvm-http.diff && \
+	git clone https://github.com/3PO/epgd-plugin-tvm.git ./PLUGINS/tvm && \
     git clone https://github.com/chriszero/epgd-plugin-tvsp.git ./PLUGINS/tvsp && \
     make all install &&\
      \
