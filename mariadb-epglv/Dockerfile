@@ -13,7 +13,7 @@ RUN apt-get update -qq &&\
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen; locale-gen &&\
     \
     apt-get install -qy build-essential \
-	    mysql-common libmariadbclient-dev libmariadbclient18 zlib1g zlib1g-dev libcrypto++-dev &&\
+	    mysql-common libmariadbclient-dev libmariadbclient18 zlib1g zlib1g-dev libcrypto++-dev libssl-dev &&\
       \
     cd /tmp/epglv && \
 	    make all && \
@@ -21,6 +21,8 @@ RUN apt-get update -qq &&\
       \
     apt-get remove -qy \
 	    build-essential \
+		libcrypto++-dev \
+		libssl-dev \
 	    libmariadbclient-dev zlib1g-dev &&\
       \
     apt-get autoremove -qy && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
