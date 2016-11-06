@@ -13,7 +13,7 @@ RUN apt-get update -qq &&\
     echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen; locale-gen &&\
     \
     apt-get install -qy build-essential \
-	    mysql-common libmariadbclient-dev libmariadbclient18 zlib1g zlib1g-dev &&\
+	    mysql-common libmariadbclient-dev libmariadbclient18 zlib1g zlib1g-dev libcrypto++-dev &&\
       \
     cd /tmp/epglv && \
 	    make all && \
