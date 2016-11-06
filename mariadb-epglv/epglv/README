@@ -18,12 +18,14 @@ Compiling:
 Installing UDFs in MySQL:
 -------------------------
 
-    Loading UDFs in MySQL
+    Loading UDFs in MySQL, at the mysql prompt call:
 
-      mysql> DROP FUNCTION IF EXISTS epglv;
-      mysql> DROP FUNCTION IF EXISTS epglvr;
-      mysql> CREATE FUNCTION epglv RETURNS INT SONAME 'mysqlepglv.so';
-      mysql> CREATE FUNCTION epglvr RETURNS INT SONAME 'mysqlepglv.so';
+      DROP FUNCTION IF EXISTS epglv;
+      DROP FUNCTION IF EXISTS epglvr;
+      CREATE FUNCTION epglv RETURNS INT SONAME 'mysqlepglv.so';
+      CREATE FUNCTION epglvr RETURNS INT SONAME 'mysqlepglv.so';
+
+   Check te installtion by:
 
       mysql> SELECT * FROM mysql.func;
       +-----------+-----+-------------------+----------+
@@ -42,14 +44,14 @@ Using epglv:
 ------------
 
     mysql> select epglv();
-    ERROR: EPGLV() requires two arguments (string, string)
+      ERROR: EPGLV() requires two arguments (string, string)
 
     First string is compared against second string.
 
-    mysql> select epglv('€uro', 'Euro');
-    +--------------------------------+
-    | epglv('€uro', 'Euro')          |
-    +--------------------------------+
-    |                              1 |
-    +--------------------------------+
+      mysql> select epglv('€uro', 'Euro');
+       +----------------------------+
+       | epglv('€uro', 'Euro')      |
+       +----------------------------+
+       |                          1 |
+       +----------------------------+
 

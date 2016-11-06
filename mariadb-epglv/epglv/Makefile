@@ -4,6 +4,8 @@
 # See the README file for copyright information and how to reach the author.
 #
 
+include ../Make.config
+
 ARCH := $(shell getconf LONG_BIT)
 
 ifneq (,$(findstring "arm", $(shell uname -m)))
@@ -21,9 +23,9 @@ CPP_FLAGS := $(CPP_FLAGS_$(ARCH)) -Wall \
 	-DMYSQL_DYNAMIC_PLUGIN \
 	-DDEBUG_MYSQL=0
 
-CC = gcc
+CC := gcc
 
-DESTDIR = $(shell mysql_config --plugindir)
+MYSQL_PLGDIR := $(shell mysql_config --plugindir)
 TARGET  = mysqlepglv.so
 OBJS    = src/epglvbase.o src/epglv.o
 
@@ -34,13 +36,19 @@ $(TARGET): $(OBJS)
 
 install: $(TARGET)
 	strip $(TARGET)
-	if ! test -f $(DESTDIR)/$(TARGET); then \
-	   install --mode=644 $(TARGET) $(DESTDIR); \
+	if ! test -f $(DESTDIR)/$(MYSQL_PLGDIR)/$(TARGET); then \
+	   install -D --mode=644 -t $(DESTDIR)/$(MYSQL_PLGDIR) $(TARGET); \
 	fi
+
+forceinstall: $(TARGET)
+	strip $(TARGET)
+	install -D --mode=644 -t $(DESTDIR)/$(MYSQL_PLGDIR) $(TARGET); \
+	$(_BINDEST)/epgd-import-epglv
 
 clean:
 	-rm -f $(TARGET) src/*.o src/*~ *~
 
+%.o: %.c
 src/%.o: src/%.c
 	$(CC) -c $(CPP_FLAGS) -pipe -O3 -shared $< -o $@
 
