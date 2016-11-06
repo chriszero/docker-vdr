@@ -4,7 +4,7 @@
 # See the README file for copyright information and how to reach the author.
 #
 
-include ../Make.config
+include Make.config
 
 ARCH := $(shell getconf LONG_BIT)
 
