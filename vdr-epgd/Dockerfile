@@ -28,6 +28,7 @@ RUN apt-get update -qq && \
     wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.102.tar.gz && \
     tar xzf vdr-epg-daemon-1.1.102.tar.gz && \
     cd vdr-epg-daemon* && \
+	sed -i -e 24c'INIT_SYSTEM = none' Make.config && \
 	git clone https://github.com/3PO/epgd-plugin-tvm.git ./PLUGINS/tvm && \
     git clone https://github.com/chriszero/epgd-plugin-tvsp.git ./PLUGINS/tvsp && \
     make all install &&\
