@@ -28,7 +28,7 @@ RUN apt-get update -qq && \
 	vdr-plugin-streamdev-server \
 	vdr-plugin-svdrposd \
 	libmariadbclient18 uuid \
-	libtinyxml2-4 \
+	libtinyxml2-0.0.0 \
 	nano && \
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
