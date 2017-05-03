@@ -25,8 +25,8 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.112.tar.gz && \
-    tar xzf vdr-epg-daemon-1.1.112.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.114.tar.gz && \
+    tar xzf vdr-epg-daemon-1.1.114.tar.gz && \
     cd vdr-epg-daemon* && \
 	sed -i -e 24c'INIT_SYSTEM = none' Make.config && \
 	git clone https://github.com/3PO/epgd-plugin-tvm.git ./PLUGINS/tvm && \
