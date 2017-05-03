@@ -28,6 +28,7 @@ RUN apt-get update -qq && \
 	vdr-plugin-streamdev-server \
 	vdr-plugin-svdrposd \
 	libmariadbclient18 uuid \
+	libtinyxml2.6.2 \
 	nano && \
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -35,7 +36,7 @@ RUN echo deb-src http://ppa.launchpad.net/yavdr/main/ubuntu trusty main >> /etc/
  && echo deb-src http://ppa.launchpad.net/yavdr/stable-vdr/ubuntu trusty main >> /etc/apt/sources.list.d/yavdr.list
 
 RUN apt-get update -qq && \
-	apt-get install -qy build-essential libmariadbclient-dev uuid-dev libjansson4 libjansson-dev python libpython2.7 libpython-dev python-dev libarchive13 libarchive-dev && \
+	apt-get install -qy build-essential libmariadbclient-dev uuid-dev libjansson4 libjansson-dev python libpython2.7 libpython-dev python-dev libarchive13 libarchive-dev libtinyxml-dev && \
 	apt-get build-dep -qy \
 	vdr-plugin-satip && \
 	wget https://github.com/rofafor/vdr-plugin-satip/archive/vdr-2.2.x.tar.gz &&\
@@ -52,7 +53,7 @@ RUN apt-get update -qq && \
 			  libcloog-isl4 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-4.8-dev \
 			  libgmp10 libisl10 libitm1 libmpc3 libmpfr4 libquadmath0 libstdc++-4.8-dev \
 			  libtimedate-perl libtsan0 linux-libc-dev make manpages manpages-dev patch \
- 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev  libarchive-dev && \
+ 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev  libarchive-dev libtinyxml-dev && \
 	apt-get autoremove -qy $(apt-cache showsrc vdr-plugin-satip | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g') && \ 
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
