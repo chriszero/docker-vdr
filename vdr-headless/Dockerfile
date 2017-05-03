@@ -28,7 +28,7 @@ RUN apt-get update -qq && \
 	vdr-plugin-streamdev-server \
 	vdr-plugin-svdrposd \
 	libmariadbclient18 uuid \
-	libtinyxml2.6.2 \
+	libtinyxml2-4 \
 	nano && \
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -53,7 +53,7 @@ RUN apt-get update -qq && \
 			  libcloog-isl4 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-4.8-dev \
 			  libgmp10 libisl10 libitm1 libmpc3 libmpfr4 libquadmath0 libstdc++-4.8-dev \
 			  libtimedate-perl libtsan0 linux-libc-dev make manpages manpages-dev patch \
- 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev  libarchive-dev libtinyxml-dev && \
+ 			  xz-utils libmariadbclient-dev uuid-dev libjansson-dev libpython-dev python-dev  libarchive-dev libtinyxml2-dev && \
 	apt-get autoremove -qy $(apt-cache showsrc vdr-plugin-satip | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g') && \ 
 	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
