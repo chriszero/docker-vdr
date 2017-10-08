@@ -10,7 +10,8 @@ RUN apt-get update -qq && \
       uuid uuid-dev \
       libarchive13 libarchive-dev \
       zlib1g zlib1g-dev \
-      libcurl3-nss libcurl4-nss-dev \
+#      libcurl3-nss libcurl4-nss-dev \
+      libcurl4-openssl-dev libcurl3 \
       libxslt1.1 libxslt1-dev \
       libxml2 libxml2-dev \
       libmariadbclient-dev libmariadbclient18 \
@@ -25,12 +26,13 @@ RUN apt-get update -qq && \
      \
     mkdir -p /usr/lib/mysql/plugin &&\
     mkdir -p /config &&\
-    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.114.tar.gz && \
-    tar xzf vdr-epg-daemon-1.1.114.tar.gz && \
+    wget https://projects.vdr-developer.org/git/vdr-epg-daemon.git/snapshot/vdr-epg-daemon-1.1.122.tar.gz && \
+    tar xzf vdr-epg-daemon-1.1.122.tar.gz && \
     cd vdr-epg-daemon* && \
-	sed -i -e 24c'INIT_SYSTEM = none' Make.config && \
-	git clone https://github.com/3PO/epgd-plugin-tvm.git ./PLUGINS/tvm && \
+    sed -i  's/CURL_GLOBAL_NOTHING/CURL_GLOBAL_SSL/' ./lib/curl.c && cat ./lib/curl.c && \
+    git clone https://github.com/3PO/epgd-plugin-tvm.git ./PLUGINS/tvm && \
     git clone https://github.com/chriszero/epgd-plugin-tvsp.git ./PLUGINS/tvsp && \
+    sed -i  's/CURL_GLOBAL_NOTHING/CURL_GLOBAL_SSL/' ./lib/curl.c && cat ./lib/curl.c && \
     make all install &&\
      \
      cd /tmp && \
